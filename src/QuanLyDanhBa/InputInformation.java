@@ -21,7 +21,6 @@ public class InputInformation {
         String dateOfBirth = input.nextLine();
         System.out.println("Email");
         String email = input.nextLine();
-        Contact contact = new Contact(phone, group, name, gioTinh, address, dateOfBirth, email);
-        return contact;
+        return new Contact(phone, group, name, gioTinh, address, dateOfBirth, email);
     }
 }

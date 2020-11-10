@@ -4,6 +4,7 @@ import QuanLyDanhBa.Exception.NumberException;
 
 import static java.lang.System.*;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -19,6 +20,7 @@ public class Main {
             out.println("2: Hiển Thị Thông Tin");
             out.println("3: Xoá Danh Bạ");
             out.println("4: Sửa Thông Tin");
+            out.println("5: Tìm Kiếm");
             out.println("9: Saver File");
             out.println("0: Để Thoát");
             choice = Integer.parseInt(scan.nextLine());
@@ -63,6 +65,23 @@ public class Main {
                             checks.setDateOfBirth(dateOfBirth);
                         }
                     }
+                    break;
+                case 5:
+                    if (manager.listContact.size() > 0) {
+                        String id = " ";
+                        out.println("Nhap Ten ");
+                        id = scan.nextLine().trim();
+                        List<Contact> result = Manager.SearchID(manager.listContact, id);
+                        if (result.size() > 0) {
+                            out.println("Find " + result.size() + " Result");
+                            Manager.display(result);
+                        } else {
+                            out.println("==> Khong co Ten \"" + id + "\"");
+                        }
+                    } else {
+                        out.println("Danh Ba trong");
+                    }
+
                     break;
                 case 9:
                     if (manager.listContact.size() > 0) {

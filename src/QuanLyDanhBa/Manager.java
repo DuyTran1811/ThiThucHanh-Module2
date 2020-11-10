@@ -65,5 +65,14 @@ public class Manager {
         }
         return null;
     }
+    public static List<Contact> SearchID(List<Contact> cot,String id){
+        List<Contact> result = new ArrayList<>();
+        for (Contact cont:cot) {
+            if (cont.getName().toLowerCase().matches(".*"+id.toLowerCase()+".*")){
+                result.add(cont);
+            }
+        }
+        return result;
+    }
 
 }
